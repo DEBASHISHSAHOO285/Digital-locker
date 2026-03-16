@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     
+    <title>Digital Locker</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <h1 class="title">My Digital Locker</h1>
+
+    <div class="dashboard">
+
+        <div class="card" onclick="openSection('resume')">
+            <h2>Resume</h2>
+            <p>View Uploaded Resume</p>
+        </div>
+
+        <div class="card" onclick="openSection('certificates')">
+            <h2>Certificates</h2>
+            <p>View Certificates</p>
+        </div>
+
+        <div class="card" onclick="openSection('documents')">
+            <h2>Personal Documents</h2>
+            <p>Important Documents</p>
+        </div>
+
+        <div class="card" onclick="openSection('photos')">
+            <h2>Passport Photos</h2>
+            <p>Photo Storage</p>
+        </div>
+
+        <div class="card" onclick="openSection('files')">
+            <h2>Important Files</h2>
+            <p>Other Files</p>
+        </div>
+
+        <div class="card" onclick="openSection('drive')">
+            <h2>Drive Links</h2>
+            <p>Google Drive Files</p>
+        </div>
+
+        
+
+    </div>
+    <button onclick="logout()" id="logoutBtn">Logout</button>
+
+    <div id="sectionPage" class="sectionPage">
+
+        <h2 id="sectionTitle"></h2>
+
+        <div id="documentList"></div>
+
+        <button class="addBtn" onclick="openPopup()">+ Add New</button>
+
+        <button class="backBtn" onclick="goBack()">Back</button>
+
+    </div>
+
+    <!-- Popup -->
+
+    <div id="popup" class="popup">
+
+        <div class="popupBox">
+
+            <h3>Add Document</h3>
+
+            <input id="docName" type="text" placeholder="Document Name">
+
+            <input id="docFile" type="file">
+
+            <input id="driveLink" type="text" placeholder="Google Drive Link">
+
+            <button onclick="saveDoc()">Upload</button>
+
+            <button onclick="closePopup()">Cancel</button>
+
+        </div>
+
+    </div>
+
+    <script>
+        if(!localStorage.getItem("token")){
+            window.location="login.html";
+        }
+   </script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
