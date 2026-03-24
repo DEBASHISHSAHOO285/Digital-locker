@@ -443,3 +443,46 @@ font-weight:600;
     cursor: pointer;
 
 }
+/* ===== RESPONSIVE ===== */
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .navbar, .top-bar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  /* Hero */
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+  }
+
+  .glass-card {
+    padding: 25px;
+    width: 90%;
+  }
+
+  /* Dashboard grid */
+  .dashboard {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  /* Buttons */
+  .btn-start, .login-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+}
