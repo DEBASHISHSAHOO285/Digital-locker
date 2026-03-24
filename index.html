@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Digital Locker</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="loader">
+  <div class="spinner"></div>
+</div>
+    <!-- Floating Particles -->
+<div class="particles"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h2 class="logo">🔐 Digital Locker</h2>
+    <a href="login.html" class="login-btn">Login</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+
+    <div class="glass-card">
+
+      <h1 class="hero-title">
+  <span id="typing"></span>
+</h1>
+
+      <p class="hero-sub">
+        Store, manage & access your important documents anytime, anywhere.
+      </p>
+
+      <a href="login.html" class="hero-btn">Get Started</a>
+
+    </div>
+    
+
+  </section>
+
+</body>
+
+<script>
+const particlesContainer = document.querySelector('.particles');
+
+for(let i = 0; i < 40; i++){
+    let span = document.createElement('span');
+
+    span.style.left = Math.random() * 100 + "%";
+    span.style.animationDuration = (Math.random() * 10 + 5) + "s";
+    span.style.opacity = Math.random();
+
+    particlesContainer.appendChild(span);
+}
+</script>
+<script>
+const card = document.querySelector(".glass-card");
+
+card.addEventListener("mousemove", (e) => {
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+
+  const rotateX = -(y - centerY) / 10;
+  const rotateY = (x - centerX) / 10;
+
+  card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+card.addEventListener("mouseleave", () => {
+  card.style.transform = "rotateX(0) rotateY(0)";
+});
+</script>
+<script>
+const text = "Secure Your Digital Life 🔐";
+let i = 0;
+
+function typeEffect(){
+  if(i < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 50);
+  }
+}
+
+typeEffect();
+</script>
+<script>
+window.onload = function(){
+  document.getElementById("loader").style.display = "none";
+};
+</script>
+
+</html>
